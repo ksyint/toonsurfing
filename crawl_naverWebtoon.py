@@ -3,11 +3,11 @@ from bs4 import BeautifulSoup
 from PIL import Image
 from tqdm import tqdm
 
-TOON_ID = '783053'
-EPISODES = (1, 50)
+TOON_ID = '720121'
+EPISODES = (1, 9)
 
 headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.61 Safari/537.36'}
-for epi in range(*EPISODES) :
+for epi in range(EPISODES[0], EPISODES[1]+1) :
     page_url = f"https://comic.naver.com/webtoon/detail?titleId={TOON_ID}&no={epi}"
     print(f'page : {page_url}')
     save_dir = f'{TOON_ID}/{str(epi).zfill(4)}'
