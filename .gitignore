@@ -1,2 +1,4 @@
 *.zip
 *.jpg
+!girls-trial/*/*.jpg
+!result/*/*.jpg

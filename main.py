@@ -73,7 +73,7 @@ class CutExtractor:
 
 
 @click.command()
-@click.option("--src", default="./743838", type=click.STRING)
+@click.option("--src", default="./girls-trial", type=click.STRING)
 @click.option("--dst", default="./result", type=click.STRING)
 @click.option("--ht", default=100, type=click.INT)
 def main(src, dst, ht):
