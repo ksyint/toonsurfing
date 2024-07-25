@@ -3,8 +3,8 @@ from bs4 import BeautifulSoup
 from PIL import Image
 from tqdm import tqdm
 
-TOON_ID = '720121'
-EPISODES = (1, 9)
+TOON_ID = '743838'
+EPISODES = (51, 195)
 
 headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.61 Safari/537.36'}
 for epi in range(EPISODES[0], EPISODES[1]+1) :
@@ -25,4 +25,8 @@ for epi in range(EPISODES[0], EPISODES[1]+1) :
         save_path = f'{save_dir}/{fn_key.zfill(3)}.jpg'
 
         img_byte = requests.get(src, headers=headers)
-        Image.open(io.BytesIO(img_byte.content)).save(save_path)
+        try : 
+            Image.open(io.BytesIO(img_byte.content)).save(save_path)
+        except Exception as e :
+            print(f'Error : {e} / {src}')
+            print(f'--------------------------------------')
