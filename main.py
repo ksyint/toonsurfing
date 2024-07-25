@@ -46,24 +46,31 @@ class CutExtractor:
             if not self.is_empty(row):
                 self.row_buf.append(row)
                 continue
-
             new_cut = self.get_new_cut()
             if new_cut is None:
                 continue
+            yield from self.proc_new_cut(new_cut)
+        yield from self.finalize_extract_process()
 
-            H, W, C = new_cut.shape
-            black_bg = H > 5_000
-            if black_bg:
-                yield from CutExtractor(new_cut,
-                                        self.height_threshold,
-                                        black_bg=True).extract()
-                self.row_buf.clear()
-                continue
+    def finalize_extract_process(self) -> Iterable[Image.Image]:
+        new_cut = self.get_new_cut()
+        if new_cut is not None:
+            yield from self.proc_new_cut(new_cut)
 
-            if H > self.height_threshold:
-                yield Image.fromarray(new_cut)
-                self.row_buf.clear()
-                continue
+    def proc_new_cut(self, new_cut: NDArray[np.uint8]) -> Iterable[Image.Image]:
+        H, W, C = new_cut.shape
+        black_bg = H > 5_000
+        if black_bg:
+            yield from CutExtractor(new_cut,
+                                    self.height_threshold,
+                                    black_bg=True).extract()
+            self.row_buf.clear()
+            return
+
+        if H > self.height_threshold:
+            yield Image.fromarray(new_cut)
+            self.row_buf.clear()
+            return
 
     def is_empty(self, row: NDArray[np.uint8]):
         return is_all_black(row) if self.black_bg else is_all_white(row)
