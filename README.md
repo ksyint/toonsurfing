@@ -2,6 +2,8 @@
 
 해당 코드는 웹툰에서 컷 단위로 장면을 뽑아내는 코드입니다. 웹툰 크롤링 데이터는 [이 레포](https://github.com/team-vvave/crawling)에서 다운로드할 수 있습니다.
 
+컷 추출이 완료된 결과는 [해당 링크](https://drive.google.com/file/d/1qFFPc8fSEoDhfA7b88QZ08GmEaBk3bHS/view?usp=sharing)에서 다운로드 가능합니다.
+
 
 ## 사용방법
 
