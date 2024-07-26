@@ -123,7 +123,7 @@ class CutExtractor:
               default=(100, 5_000),
               type=click.Tuple([click.INT, click.INT]))
 @click.option("--tol", default=50.0, type=click.FLOAT)
-def main(src, dst, hlim, tol):
+def main(src, dst, hlim: tuple[int, int], tol: float):
     min_height, max_height = hlim
     src = Path(src)
     dst = Path(dst)
@@ -134,7 +134,8 @@ def main(src, dst, hlim, tol):
         extractor = CutExtractor(ChunkImageLoader(ep_dir),
                                  min_height,
                                  max_height,
-                                 color_tol=tol)
+                                 color_tol=tol,
+                                 dst=dst)
         for i, cut in enumerate(extractor.extract()):
             assert cut.height >= min_height
             assert cut.height <= max_height
