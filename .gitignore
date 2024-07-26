@@ -2,3 +2,4 @@
 *.jpg
 !girls-trial/*/*.jpg
 !result/*/*.jpg
+__pycache__
