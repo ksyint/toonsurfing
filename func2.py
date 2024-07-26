@@ -69,8 +69,8 @@ def search_query(query: str, count: int):
     
     # 장면 검색
     db = load_scene_db(
-        data_path="./data/scene_data.json",
-        db_name="faiss_index_scene"
+        data_path="./func2_retrieval/data/scene_data.json",
+        db_name="./func2_retrieval/faiss_index_scene"
     )
     results_with_scores = db.similarity_search_with_score(scene, k=count)
     
