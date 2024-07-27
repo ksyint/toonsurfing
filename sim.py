@@ -1,5 +1,4 @@
 from web_ocr import calculate_similarity 
-#import jsonwith open(file, 'r', encoding='utf-8') as file:
 import json
 
 def find_most_similar_desc(query, data):
