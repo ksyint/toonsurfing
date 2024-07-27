@@ -12,7 +12,6 @@ import Levenshtein
 
 """
 
-openai.api_key = 'REDACTED_CREDENTIAL'
 
 def chat_gpt(contents,prompt):
     
