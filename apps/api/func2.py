@@ -76,7 +76,7 @@ def search_by_dialogue(query, count):
                 'image_path': image_path,
                 'episode': episode,
                 'num': num,
-                'similarity': score}
+                'similarity': float(score)}
         search_result.append(temp)    
         
     return search_result
