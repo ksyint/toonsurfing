@@ -1,0 +1,192 @@
+{
+  "organization": "team-vvave",
+  "imported_on": "2026-10-22",
+  "repositories": [
+    {
+      "name": "crawling",
+      "url": "https://github.com/team-vvave/crawling",
+      "private": true,
+      "default_branch": "main",
+      "path": "pipelines/crawling",
+      "original_commit": "4f2bd3ca20e6d48dca4d4c7a83e0e6bf114b6569",
+      "imported_commit": "4f2bd3ca20e6d48dca4d4c7a83e0e6bf114b6569",
+      "history_sanitized": false,
+      "source_tree": "dbe3376d63793f025c7faed7f54d058fd2ed22dc",
+      "source_commit_count": 8,
+      "refs": [
+        {
+          "source_ref": "refs/heads/main",
+          "imported_ref": "refs/heads/upstream/crawling/main",
+          "commit": "4f2bd3ca20e6d48dca4d4c7a83e0e6bf114b6569"
+        }
+      ]
+    },
+    {
+      "name": "image_retrieval",
+      "url": "https://github.com/team-vvave/image_retrieval",
+      "private": true,
+      "default_branch": "main",
+      "path": "archive/image-retrieval",
+      "original_commit": "1fb2f44ab718a9d4097f35da43462d70f3d583a0",
+      "imported_commit": "1fb2f44ab718a9d4097f35da43462d70f3d583a0",
+      "history_sanitized": false,
+      "source_tree": "a11f4d0c7cebbb27e7c91d511df6aca215473642",
+      "source_commit_count": 1,
+      "refs": [
+        {
+          "source_ref": "refs/heads/main",
+          "imported_ref": "refs/heads/upstream/image_retrieval/main",
+          "commit": "1fb2f44ab718a9d4097f35da43462d70f3d583a0"
+        }
+      ]
+    },
+    {
+      "name": "kollava",
+      "url": "https://github.com/team-vvave/kollava",
+      "private": true,
+      "default_branch": "main",
+      "path": "research/kollava",
+      "original_commit": "90039e6c9b59d7caa756b56ea3533ff8167309f8",
+      "imported_commit": "90039e6c9b59d7caa756b56ea3533ff8167309f8",
+      "history_sanitized": false,
+      "source_tree": "b19fa7c40dcc775bdb5f23d47a4099c606f934cc",
+      "source_commit_count": 1,
+      "refs": [
+        {
+          "source_ref": "refs/heads/main",
+          "imported_ref": "refs/heads/upstream/kollava/main",
+          "commit": "90039e6c9b59d7caa756b56ea3533ff8167309f8"
+        }
+      ]
+    },
+    {
+      "name": "composed-image-retrieval",
+      "url": "https://github.com/team-vvave/composed-image-retrieval",
+      "private": true,
+      "default_branch": "main",
+      "path": "research/composed-image-retrieval",
+      "original_commit": "6d03aef1e8a34a521817f3b19cd56661164e0a81",
+      "imported_commit": "6d03aef1e8a34a521817f3b19cd56661164e0a81",
+      "history_sanitized": false,
+      "source_tree": "6c04ac4c5eb9cb9784e6a6fced3427c6d4f4e1b6",
+      "source_commit_count": 1,
+      "refs": [
+        {
+          "source_ref": "refs/heads/main",
+          "imported_ref": "refs/heads/upstream/composed-image-retrieval/main",
+          "commit": "6d03aef1e8a34a521817f3b19cd56661164e0a81"
+        }
+      ]
+    },
+    {
+      "name": "toonsurfing_frontend",
+      "url": "https://github.com/team-vvave/toonsurfing_frontend",
+      "private": false,
+      "default_branch": "master",
+      "path": "apps/web",
+      "original_commit": "cbe60fecb81c205cd46b6b836fb7a858fdb1c13d",
+      "imported_commit": "cbe60fecb81c205cd46b6b836fb7a858fdb1c13d",
+      "history_sanitized": false,
+      "source_tree": "4b8fea9982902141b3ea0ddb67f9a8b45c1dfc6d",
+      "source_commit_count": 37,
+      "refs": [
+        {
+          "source_ref": "refs/heads/develop",
+          "imported_ref": "refs/heads/upstream/toonsurfing_frontend/develop",
+          "commit": "6166c65138094d592e55e2acc9e19a73a9926675"
+        },
+        {
+          "source_ref": "refs/heads/master",
+          "imported_ref": "refs/heads/upstream/toonsurfing_frontend/master",
+          "commit": "cbe60fecb81c205cd46b6b836fb7a858fdb1c13d"
+        },
+        {
+          "source_ref": "refs/pull/1/head",
+          "imported_ref": "refs/heads/upstream/toonsurfing_frontend/pull/1/head",
+          "commit": "46ee34c120787ab3cba1e0dcdf5761b1fc959bd9"
+        },
+        {
+          "source_ref": "refs/pull/2/head",
+          "imported_ref": "refs/heads/upstream/toonsurfing_frontend/pull/2/head",
+          "commit": "6166c65138094d592e55e2acc9e19a73a9926675"
+        }
+      ]
+    },
+    {
+      "name": "cut-extractor",
+      "url": "https://github.com/team-vvave/cut-extractor",
+      "private": true,
+      "default_branch": "main",
+      "path": "pipelines/cut-extractor",
+      "original_commit": "b937bd10784e544fe1e1b88705e2a7bbfdc627e6",
+      "imported_commit": "b937bd10784e544fe1e1b88705e2a7bbfdc627e6",
+      "history_sanitized": false,
+      "source_tree": "c8abc0f0d6400af40d7048435198f25fbe0c8bca",
+      "source_commit_count": 8,
+      "refs": [
+        {
+          "source_ref": "refs/heads/main",
+          "imported_ref": "refs/heads/upstream/cut-extractor/main",
+          "commit": "b937bd10784e544fe1e1b88705e2a7bbfdc627e6"
+        }
+      ]
+    },
+    {
+      "name": "gradio_demo_api",
+      "url": "https://github.com/team-vvave/gradio_demo_api",
+      "private": false,
+      "default_branch": "main",
+      "path": "apps/api",
+      "original_commit": "61f56a6a6ceb12e34c013de5c41d14cfa9681036",
+      "imported_commit": "d8dcd27a9d5ee66bdc7e3459b2ab65e0b88e5b0b",
+      "history_sanitized": true,
+      "source_tree": "ba9abc1f010e012195d0447bcbfb0cb2e9070619",
+      "source_commit_count": 25,
+      "refs": [
+        {
+          "source_ref": "refs/heads/main",
+          "imported_ref": "refs/heads/upstream/gradio_demo_api/main",
+          "commit": "d8dcd27a9d5ee66bdc7e3459b2ab65e0b88e5b0b"
+        }
+      ]
+    },
+    {
+      "name": "dialogue_search",
+      "url": "https://github.com/team-vvave/dialogue_search",
+      "private": true,
+      "default_branch": "main",
+      "path": "research/dialogue-search",
+      "original_commit": "00b9ec26db8f9c76dad9fba5920d0a58d08e45a0",
+      "imported_commit": "d06748612936cbaf7d019b350c9e9784398fb5ff",
+      "history_sanitized": true,
+      "source_tree": "a554591386b8097f0ffeafb40cdbe532fd71ab63",
+      "source_commit_count": 3,
+      "refs": [
+        {
+          "source_ref": "refs/heads/main",
+          "imported_ref": "refs/heads/upstream/dialogue_search/main",
+          "commit": "d06748612936cbaf7d019b350c9e9784398fb5ff"
+        }
+      ]
+    },
+    {
+      "name": ".github",
+      "url": "https://github.com/team-vvave/.github",
+      "private": false,
+      "default_branch": "main",
+      "path": "docs/upstream-profile",
+      "original_commit": "a1a211e5e5610a9d8c434b0852a554def7f39552",
+      "imported_commit": "a1a211e5e5610a9d8c434b0852a554def7f39552",
+      "history_sanitized": false,
+      "source_tree": "58aeaceaf2336601a7c0146d8b107f742e289c97",
+      "source_commit_count": 3,
+      "refs": [
+        {
+          "source_ref": "refs/heads/main",
+          "imported_ref": "refs/heads/upstream/org-profile/main",
+          "commit": "a1a211e5e5610a9d8c434b0852a554def7f39552"
+        }
+      ]
+    }
+  ]
+}
