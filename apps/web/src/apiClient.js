@@ -1,12 +1,9 @@
 import axios from "axios";
 
-const host =
-  window.location.hostname === "localhost"
-    ? "http://1.215.235.253:17000"
-    : "/api";
+export const apiBaseURL = (process.env.REACT_APP_API_URL || "/api").replace(/\/$/, "");
 
 export const apiClient = axios.create({
-  baseURL: host,
+  baseURL: apiBaseURL,
   headers: {
     Accept: "application/json",
     "Content-Type": "application/json",

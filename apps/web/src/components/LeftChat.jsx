@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { apiBaseURL } from "../apiClient";
 
 const Container = styled(motion.div)`
   display: flex;
@@ -118,12 +119,6 @@ export default function LeftChat({ episode, num, imagePath, className }) {
     `${base}/${(currentNumber + 5).toString().padStart(3, "0")}.jpg`,
   ];
 
-  const fallbackImages = [
-    `${base}/040.jpg`,
-    `${base}/050.jpg`,
-    `${base}/060.jpg`,
-  ];
-
   const openLinkInNewWindow = () => {
     window.open(link, "_blank", "noopener,noreferrer");
   };
@@ -168,9 +163,8 @@ export default function LeftChat({ episode, num, imagePath, className }) {
   };
 
   const handleError = (e) => {
-    const randomFallback =
-      fallbackImages[Math.floor(Math.random() * fallbackImages.length)];
-    e.target.src = `/assets/images/cuts/${randomFallback}`;
+    e.target.onerror = null;
+    e.target.style.display = "none";
   };
 
   return (
@@ -191,7 +185,7 @@ export default function LeftChat({ episode, num, imagePath, className }) {
           {images.map((img, index) => (
             <ToonImage
               key={index}
-              src={`/assets/images/cuts/${img}`}
+              src={`${apiBaseURL}/images/${img}`}
               alt={`response-${index}`}
               onError={handleError}
             />

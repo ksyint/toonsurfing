@@ -1,12 +1,17 @@
 import os
 import json
 import openai
+from functools import lru_cache
+from settings import API_DIR
 from langchain_core.documents import Document
 from langchain_community.vectorstores import FAISS
 from langchain_huggingface import HuggingFaceEmbeddings
-with open("secret.txt", 'r') as f :
-    openai.api_key = f.readline().strip()
-embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/LaBSE")
+openai.api_key = os.environ.get("OPENAI_API_KEY", "")
+
+
+@lru_cache(maxsize=1)
+def get_embeddings():
+    return HuggingFaceEmbeddings(model_name="sentence-transformers/LaBSE")
 
 def read_json_file(file_path):
     with open(file_path, 'r', encoding='utf-8') as file:
@@ -41,9 +46,11 @@ def load_dialogue_data(data_path):
     return list_of_documents
 
 
+@lru_cache(maxsize=2)
 def load_db(data_type):
-    data_path = f"./func2_retrieval/data/{data_type}_data.json"
-    db_name = f"./func2_retrieval/faiss_index_{data_type}"
+    embeddings = get_embeddings()
+    data_path = API_DIR / "func2_retrieval/data" / f"{data_type}_data.json"
+    db_name = str(API_DIR / "func2_retrieval" / f"faiss_index_{data_type}")
     if not os.path.exists(db_name):
         if data_type == "scene":
             list_of_documents = load_scene_data(data_path)
@@ -89,7 +96,7 @@ def refine_query(query):
         max_tokens=256,
         temperature=0.0,
         response_format = {"type": "json_object"},
-        model="gpt-4-1106-preview",
+        model=os.environ.get("OPENAI_MODEL", "gpt-4-1106-preview"),
         messages=[
             {"role": "system", "content": "You are a helpful assistant who responds in json."},
             {"role": "user", "content": prompt},

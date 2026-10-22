@@ -11,9 +11,9 @@ import RightChat from "../components/RightChat";
 import SuccessChat from "../components/SuccessChat";
 import FailureChat from "../components/FailureChat";
 
-import profile from "../assets/images/thumnails/소녀재판.PNG";
-import backButton from "../assets/images/leftArrow.png";
-import header from "../assets/images/header.png";
+import profile from "../assets/images/thumnails/소녀재판.svg";
+import backButton from "../assets/images/leftArrow.svg";
+import header from "../assets/images/header.svg";
 
 const pageVariants = {
   initial: { opacity: 0 },
@@ -354,6 +354,7 @@ export default function ChatPage() {
             value={inputValue}
             onChange={handleInputChange}
             onFocus={handleInputFocus}
+            onBlur={handleInputBlur}
             onKeyPress={handleKeyPress}
             placeholder="메시지를 입력하세요"
             ref={inputRef}

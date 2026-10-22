@@ -1,0 +1,6 @@
+Pillow
+numpy
+opencv-python-headless
+click
+tqdm
+typing_extensions

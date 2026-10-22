@@ -6,7 +6,7 @@ from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_core.documents import Document
 from langchain_community.vectorstores import FAISS
 import openai
-openai.api_key = "REDACTED_CREDENTIAL"
+openai.api_key = os.environ.get("OPENAI_API_KEY", "")
 
 embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/LaBSE")
 
@@ -76,7 +76,7 @@ def refine_query(query):
     response = openai.ChatCompletion.create(
         max_tokens=256,
         response_format = {"type": "json_object"},
-        model="gpt-4-1106-preview",
+        model=os.environ.get("OPENAI_MODEL", "gpt-4-1106-preview"),
         messages=[
             {"role": "system", "content": "You are a helpful assistant who responds in json."},
             {"role": "user", "content": prompt},

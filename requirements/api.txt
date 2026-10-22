@@ -1,0 +1,25 @@
+# Imported application dependencies; research training has its own environment.
+# Legacy calls in func2.py require the pre-1.0 OpenAI client.
+openai==0.28.1
+gradio==4.44.1
+fastapi==0.112.2
+uvicorn
+clip-retrieval>=2.44,<3
+googletrans-py
+langchain-core<0.3
+langchain-community<0.3
+langchain-huggingface<0.1
+sentence-transformers<3
+transformers<4.45
+faiss-cpu
+Pillow
+numpy<2
+torch>=2.2,<2.6
+torchvision>=0.17,<0.21
+ftfy
+regex
+tqdm
+huggingface-hub>=0.23.2,<0.26
+pydantic>=2,<2.11
+# Vendored CLIP and clip-anytorch still import pkg_resources.
+setuptools<81

@@ -3,20 +3,20 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
-import closeButton from "../assets/images/closeButton.png";
-import thumbnail1 from "../assets/images/thumnails/소녀재판.PNG";
-import thumbnail2 from "../assets/images/thumnails/걔의질투.PNG";
-import thumbnail3 from "../assets/images/thumnails/귀비나리.PNG";
-import thumbnail4 from "../assets/images/thumnails/그날죽은나는.PNG";
-import thumbnail5 from "../assets/images/thumnails/기자매.PNG";
-import thumbnail6 from "../assets/images/thumnails/미래의골동품가게.PNG";
-import thumbnail7 from "../assets/images/thumnails/사랑하는여름하늘.PNG";
-import thumbnail8 from "../assets/images/thumnails/아르마딜로.PNG";
-import thumbnail9 from "../assets/images/thumnails/여우놀이.PNG";
-import thumbnail10 from "../assets/images/thumnails/예명여고.PNG";
-import thumbnail11 from "../assets/images/thumnails/일립예고학생들.PNG";
-import thumbnail12 from "../assets/images/thumnails/자멸기관.PNG";
-import thumbnail13 from "../assets/images/thumnails/처음을줄게.PNG";
+import closeButton from "../assets/images/closeButton.svg";
+import thumbnail1 from "../assets/images/thumnails/소녀재판.svg";
+import thumbnail2 from "../assets/images/thumnails/걔의질투.svg";
+import thumbnail3 from "../assets/images/thumnails/귀비나리.svg";
+import thumbnail4 from "../assets/images/thumnails/그날죽은나는.svg";
+import thumbnail5 from "../assets/images/thumnails/기자매.svg";
+import thumbnail6 from "../assets/images/thumnails/미래의골동품가게.svg";
+import thumbnail7 from "../assets/images/thumnails/사랑하는여름하늘.svg";
+import thumbnail8 from "../assets/images/thumnails/아르마딜로.svg";
+import thumbnail9 from "../assets/images/thumnails/여우놀이.svg";
+import thumbnail10 from "../assets/images/thumnails/예명여고.svg";
+import thumbnail11 from "../assets/images/thumnails/일립예고학생들.svg";
+import thumbnail12 from "../assets/images/thumnails/자멸기관.svg";
+import thumbnail13 from "../assets/images/thumnails/처음을줄게.svg";
 
 const pageVariants = {
   initial: { opacity: 0 },

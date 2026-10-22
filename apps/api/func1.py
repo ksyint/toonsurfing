@@ -2,10 +2,10 @@ import os
 from PIL import Image
 from clip_retrieval.clip_client import ClipClient
 from googletrans import Translator
+from settings import CHARACTER_DIR, CLIP_URL, CLIP_INDEX
 translator = Translator()
 
-CLIP_PORT=13131
-INDICE_PATH="index_h14"
+INDICE_PATH=CLIP_INDEX
 
 def translate_kor_to_eng(text_kor) :
     text_en = translator.translate(text_kor, src='ko', dest='en').text
@@ -13,7 +13,7 @@ def translate_kor_to_eng(text_kor) :
 
 def search_by_text(input_text_kor, input_count) :
     text_en = translate_kor_to_eng(input_text_kor)
-    client = ClipClient(url=f"http://localhost:{CLIP_PORT}/knn-service", indice_name=INDICE_PATH,
+    client = ClipClient(url=CLIP_URL, indice_name=INDICE_PATH,
                         num_images=input_count, deduplicate=False,
                         use_safety_model=False, use_violence_detector=False)
 
@@ -39,13 +39,13 @@ def search_by_text(input_text_kor, input_count) :
 # count1, count2, count3 = 1000, 1000, 10
 def search_by_text_and_image(input_text_kor, character_name, count1, count2, count3) :
     text_en = translate_kor_to_eng(input_text_kor)
-    client = ClipClient(url=f"http://localhost:{CLIP_PORT}/knn-service", indice_name=INDICE_PATH,
+    client = ClipClient(url=CLIP_URL, indice_name=INDICE_PATH,
                         num_images=count1, deduplicate=False,
                         use_safety_model=False, use_violence_detector=False)
     outputs1 = client.query(text=text_en)
 
-    img_path = f"./character_images/{character_name}.jpg"
-    client = ClipClient(url=f"http://localhost:{CLIP_PORT}/knn-service", indice_name=INDICE_PATH,
+    img_path = str(CHARACTER_DIR / f"{character_name}.jpg")
+    client = ClipClient(url=CLIP_URL, indice_name=INDICE_PATH,
                         num_images=count2, deduplicate=False,
                         use_safety_model=False, use_violence_detector=False)
     outputs2 = client.query(image=img_path)

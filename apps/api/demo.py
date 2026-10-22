@@ -2,16 +2,26 @@ import os
 import json
 from PIL import Image
 import gradio as gr
-from gradio_client import Client
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 import uvicorn
 import argparse
 
 from func1 import search_by_text, search_by_text_and_image
 from func2 import search_by_dialogue, refine_query
-from func3 import get_target_paths, do_retrieve
+from settings import IMAGE_DIR
+
+
+def get_target_paths(kind):
+    from func3 import get_target_paths as implementation
+    return implementation(kind)
+
+
+def do_retrieve(query, target_paths, k):
+    from func3 import do_retrieve as implementation
+    return implementation(query, target_paths, k)
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--host", type=str, default="localhost")
@@ -19,10 +29,15 @@ parser.add_argument("--port", type=int, default=7000)
 parser.add_argument("--workers", type=int, default=1)
 args = parser.parse_args()
 
-IMAGE_DIR = "../dataset_shared2/orig-result"
 CHARACTERS = ["강효민", "박가을", "차태석", "한유현", "황윤혜"]
 
 app = FastAPI()
+app.mount('/images', StaticFiles(directory=str(IMAGE_DIR), check_dir=False), name='images')
+
+
+@app.get('/health')
+def health():
+    return {"status": "ok"}
 
 origins = ["*"]
 app.add_middleware(CORSMiddleware, allow_origins=origins, allow_credentials=True, allow_methods=["*"], allow_headers=["*"])
@@ -36,9 +51,7 @@ def api_search_by_text(req_json: TextItem) :
     text_kor = req_json.text_kor
     count = 5
     
-    client = Client(f"http://localhost:{args.port}/demo")
-    text_en, search_list = client.predict(api_name="/search_by_text", 
-                                          input_text_kor=text_kor, input_count=count)
+    text_en, search_list = search_by_text(text_kor, count)
     return {"text_en" : text_en,
             "search_list" : search_list}
 
@@ -48,9 +61,7 @@ def api_search_by_dialogue(req_json: TextItem) :
     text_kor = req_json.text_kor
     count = 2
 
-    client = Client(f"http://localhost:{args.port}/demo")
-    search_list = client.predict(api_name="/search_by_dialogue", 
-                                 query=text_kor, count=count)
+    search_list = search_by_dialogue(text_kor, count)
     return {"search_list" : search_list}
 
 
@@ -59,8 +70,7 @@ def api_search_by_dialogue(req_json: TextItem) :
 def api_search_by_final(req_json: TextItem) :
     text_kor = req_json.text_kor
 
-    client = Client(f"http://localhost:{args.port}/demo")
-    middle_text, _, search_list = client.predict(api_name="/search_by_final", input_text_kor=text_kor)
+    middle_text, _, search_list = search_by_final(text_kor)
     return {"middle_text": middle_text,
             "search_list" : search_list}
 
@@ -153,7 +163,7 @@ with gr.Blocks() as demo :
                 func3_input_text_kor = gr.Text(label="Input (Kor)", info="한국어로 질문을 입력하세요. 캐릭터명) 강효민, 김민정, 김서아, 민아름, 박가을, 이미소, 정해서, 진은설, 차태석, 한유현, 황윤혜",
                                                value="there exists 박가을")
                 func3_input_count = gr.Slider(label="Max count", info="응답받는 최대 개수를 설정합니다.", minimum=1, maximum=100, step=1, value=5)
-                func3_input_paths = gr.Textbox(label="Target paths", info="대상으로 하는 이미지 경로", lines=10, value=get_target_paths('sample'))
+                func3_input_paths = gr.Textbox(label="Target paths", info="대상으로 하는 이미지 경로", lines=10, value=sorted(str(p.relative_to(IMAGE_DIR)) for p in IMAGE_DIR.glob('*/*.jpg'))[:100])
                 func3_btn_submit = gr.Button(value="Submit", variant='primary')
 
             with gr.Column() :

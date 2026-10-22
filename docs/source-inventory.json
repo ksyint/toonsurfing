@@ -1,0 +1,1208 @@
+[
+  {
+    "repository": "team-vvave/crawling",
+    "tracked_files": 5,
+    "reviewed_source_files": [
+      {
+        "path": "crawl_naverWebtoon.py",
+        "lines": 32,
+        "definitions": [],
+        "imports": [
+          "PIL",
+          "bs4",
+          "io",
+          "os",
+          "requests",
+          "tqdm"
+        ]
+      },
+      {
+        "path": "crawl_naverWebtoon_mp.py",
+        "lines": 48,
+        "definitions": [
+          "fetch_url",
+          "parse_html"
+        ],
+        "imports": [
+          "PIL",
+          "argparse",
+          "bs4",
+          "concurrent",
+          "io",
+          "os",
+          "requests",
+          "tqdm"
+        ]
+      },
+      {
+        "path": "extract_cut.py",
+        "lines": 1,
+        "definitions": [],
+        "imports": []
+      }
+    ]
+  },
+  {
+    "repository": "team-vvave/image_retrieval",
+    "tracked_files": 1,
+    "reviewed_source_files": []
+  },
+  {
+    "repository": "team-vvave/kollava",
+    "tracked_files": 10,
+    "reviewed_source_files": [
+      {
+        "path": "Dockerfile",
+        "lines": 12
+      },
+      {
+        "path": "code/infer.py",
+        "lines": 131,
+        "definitions": [
+          "load_image",
+          "KoLLaVAInferencePipeline",
+          "main"
+        ],
+        "imports": [
+          "PIL",
+          "click",
+          "io",
+          "llava",
+          "os",
+          "requests",
+          "torch",
+          "transformers"
+        ]
+      },
+      {
+        "path": "run.sh",
+        "lines": 9
+      }
+    ]
+  },
+  {
+    "repository": "team-vvave/composed-image-retrieval",
+    "tracked_files": 985,
+    "reviewed_source_files": [
+      {
+        "path": "Dockerfile",
+        "lines": 6
+      },
+      {
+        "path": "code/main.py",
+        "lines": 180,
+        "definitions": [
+          "_normalize",
+          "ComposedImageSearchPipeline",
+          "load_models",
+          "ImageInfo",
+          "RerankRequest",
+          "RetrieveRequest",
+          "get_composed_query",
+          "retrieve",
+          "rerank"
+        ],
+        "imports": [
+          "PIL",
+          "click",
+          "fastapi",
+          "model",
+          "pathlib",
+          "pydantic",
+          "third_party",
+          "torch",
+          "typing"
+        ]
+      },
+      {
+        "path": "code/model/clip.py",
+        "lines": 264,
+        "definitions": [
+          "has_hf_hub",
+          "download_pretrained_from_hf",
+          "_download",
+          "_convert_to_rgb",
+          "_transform",
+          "available_models",
+          "load",
+          "tokenize"
+        ],
+        "imports": [
+          "PIL",
+          "functools",
+          "hashlib",
+          "huggingface_hub",
+          "model",
+          "os",
+          "third_party",
+          "torch",
+          "torchvision",
+          "tqdm",
+          "typing",
+          "urllib",
+          "warnings"
+        ]
+      },
+      {
+        "path": "code/model/model.py",
+        "lines": 595,
+        "definitions": [
+          "IM2TEXT",
+          "Bottleneck",
+          "AttentionPool2d",
+          "ModifiedResNet",
+          "LayerNorm",
+          "QuickGELU",
+          "ResidualAttentionBlock",
+          "Transformer",
+          "VisualTransformer",
+          "CLIP",
+          "concat_all_gather",
+          "convert_weights",
+          "build_model"
+        ],
+        "imports": [
+          "collections",
+          "copy",
+          "json",
+          "numpy",
+          "os",
+          "torch",
+          "typing"
+        ]
+      },
+      {
+        "path": "code/src/data.py",
+        "lines": 584,
+        "definitions": [
+          "CIRR",
+          "FashionIQ",
+          "CsvCOCO",
+          "ImageList",
+          "CustomFolder",
+          "CsvDataset",
+          "DataInfo",
+          "preprocess_txt",
+          "get_dataset_size",
+          "get_imagenet",
+          "count_samples",
+          "get_csv_dataset",
+          "get_imgnet_r",
+          "get_directory_dataset",
+          "get_dataset_fn",
+          "get_data"
+        ],
+        "imports": [
+          "PIL",
+          "braceexpand",
+          "dataclasses",
+          "functools",
+          "imagenetv2_pytorch",
+          "json",
+          "logging",
+          "math",
+          "numpy",
+          "os",
+          "pandas",
+          "pdb",
+          "pyarrow",
+          "random",
+          "sys",
+          "third_party",
+          "torch",
+          "torchvision",
+          "typing"
+        ]
+      },
+      {
+        "path": "code/src/demo.py",
+        "lines": 279,
+        "definitions": [
+          "main_worker",
+          "main"
+        ],
+        "imports": [
+          "data",
+          "eval_utils",
+          "json",
+          "logger",
+          "logging",
+          "model",
+          "os",
+          "params",
+          "pathlib",
+          "shutil",
+          "subprocess",
+          "sys",
+          "time",
+          "torch",
+          "utils"
+        ]
+      },
+      {
+        "path": "code/src/eval_retrieval.py",
+        "lines": 356,
+        "definitions": [
+          "load_model",
+          "setup_log_save",
+          "main_worker",
+          "main"
+        ],
+        "imports": [
+          "PIL",
+          "data",
+          "eval_utils",
+          "functools",
+          "json",
+          "logger",
+          "logging",
+          "model",
+          "os",
+          "params",
+          "pathlib",
+          "shutil",
+          "subprocess",
+          "sys",
+          "time",
+          "torch",
+          "torchvision",
+          "utils",
+          "wandb"
+        ]
+      },
+      {
+        "path": "code/src/eval_utils.py",
+        "lines": 632,
+        "definitions": [
+          "prepare_img",
+          "visualize_results",
+          "make_html",
+          "evaluate_imgnet_retrieval",
+          "evaluate_coco",
+          "evaluate_cirr",
+          "evaluate_cirr_test",
+          "evaluate_fashion",
+          "get_metrics_coco",
+          "get_metrics_fashion",
+          "get_metrics_cirr",
+          "get_cirr_testoutput",
+          "get_metrics_imgnet"
+        ],
+        "imports": [
+          "PIL",
+          "functools",
+          "json",
+          "logging",
+          "numpy",
+          "os",
+          "pdb",
+          "pickle",
+          "shutil",
+          "sys",
+          "third_party",
+          "time",
+          "torch",
+          "torchvision",
+          "tqdm",
+          "utils"
+        ]
+      },
+      {
+        "path": "code/src/logger.py",
+        "lines": 104,
+        "definitions": [
+          "setup_primary_logging",
+          "WorkerLogFilter",
+          "setup_worker_logging",
+          "fake_worker"
+        ],
+        "imports": [
+          "argparse",
+          "logging",
+          "torch"
+        ]
+      },
+      {
+        "path": "code/src/main.py",
+        "lines": 339,
+        "definitions": [
+          "main_worker",
+          "main"
+        ],
+        "imports": [
+          "data",
+          "json",
+          "logger",
+          "logging",
+          "model",
+          "os",
+          "params",
+          "pathlib",
+          "pdb",
+          "shutil",
+          "subprocess",
+          "sys",
+          "third_party",
+          "time",
+          "torch",
+          "torchvision",
+          "trainer",
+          "utils",
+          "wandb"
+        ]
+      },
+      {
+        "path": "code/src/params.py",
+        "lines": 313,
+        "definitions": [
+          "get_project_root",
+          "get_default_params",
+          "parse_args"
+        ],
+        "imports": [
+          "argparse",
+          "pathlib"
+        ]
+      },
+      {
+        "path": "code/src/trainer.py",
+        "lines": 237,
+        "definitions": [
+          "get_loss",
+          "get_text_features",
+          "get_loss_img2text",
+          "train"
+        ],
+        "imports": [
+          "PIL",
+          "json",
+          "logging",
+          "numpy",
+          "os",
+          "pdb",
+          "sys",
+          "third_party",
+          "time",
+          "torch",
+          "torchvision",
+          "tqdm",
+          "utils",
+          "wandb"
+        ]
+      },
+      {
+        "path": "code/src/utils.py",
+        "lines": 51,
+        "definitions": [
+          "TargetPad",
+          "convert_models_to_fp32",
+          "is_master"
+        ],
+        "imports": [
+          "math",
+          "numpy",
+          "torch",
+          "torchvision"
+        ]
+      },
+      {
+        "path": "code/third_party/open_clip/clip.py",
+        "lines": 227,
+        "definitions": [
+          "_download",
+          "_convert_image_to_rgb",
+          "_transform",
+          "available_models",
+          "load",
+          "tokenize"
+        ],
+        "imports": [
+          "PIL",
+          "hashlib",
+          "model",
+          "os",
+          "pkg_resources",
+          "simple_tokenizer",
+          "torch",
+          "torchvision",
+          "tqdm",
+          "typing",
+          "urllib",
+          "warnings"
+        ]
+      },
+      {
+        "path": "code/third_party/open_clip/environment.yml",
+        "lines": 152
+      },
+      {
+        "path": "code/third_party/open_clip/model.py",
+        "lines": 436,
+        "definitions": [
+          "Bottleneck",
+          "AttentionPool2d",
+          "ModifiedResNet",
+          "LayerNorm",
+          "QuickGELU",
+          "ResidualAttentionBlock",
+          "Transformer",
+          "VisionTransformer",
+          "CLIP",
+          "convert_weights",
+          "build_model"
+        ],
+        "imports": [
+          "collections",
+          "numpy",
+          "torch",
+          "typing"
+        ]
+      },
+      {
+        "path": "code/third_party/open_clip/scheduler.py",
+        "lines": 20,
+        "definitions": [
+          "assign_learning_rate",
+          "_warmup_lr",
+          "cosine_lr"
+        ],
+        "imports": [
+          "numpy"
+        ]
+      },
+      {
+        "path": "code/third_party/open_clip/simple_tokenizer.py",
+        "lines": 132,
+        "definitions": [
+          "default_bpe",
+          "bytes_to_unicode",
+          "get_pairs",
+          "basic_clean",
+          "whitespace_clean",
+          "SimpleTokenizer"
+        ],
+        "imports": [
+          "ftfy",
+          "functools",
+          "gzip",
+          "html",
+          "os",
+          "regex"
+        ]
+      },
+      {
+        "path": "reqtest.py",
+        "lines": 21,
+        "definitions": [],
+        "imports": [
+          "requests"
+        ]
+      }
+    ]
+  },
+  {
+    "repository": "team-vvave/toonsurfing_frontend",
+    "tracked_files": 31,
+    "reviewed_source_files": [
+      {
+        "path": "src/App.js",
+        "lines": 43
+      },
+      {
+        "path": "src/Router.js",
+        "lines": 17
+      },
+      {
+        "path": "src/apiClient.js",
+        "lines": 32
+      },
+      {
+        "path": "src/components/FailureChat.jsx",
+        "lines": 63
+      },
+      {
+        "path": "src/components/InitialChat.jsx",
+        "lines": 81
+      },
+      {
+        "path": "src/components/LeftChat.jsx",
+        "lines": 207
+      },
+      {
+        "path": "src/components/RightChat.jsx",
+        "lines": 33
+      },
+      {
+        "path": "src/components/SuccessChat.jsx",
+        "lines": 63
+      },
+      {
+        "path": "src/config.js",
+        "lines": 0
+      },
+      {
+        "path": "src/index.js",
+        "lines": 11
+      },
+      {
+        "path": "src/pages/ChatPage.jsx",
+        "lines": 371
+      },
+      {
+        "path": "src/pages/HomePage.jsx",
+        "lines": 105
+      },
+      {
+        "path": "src/pages/SelectPage.jsx",
+        "lines": 275
+      },
+      {
+        "path": "src/styles/GlobalStyle.js",
+        "lines": 12
+      }
+    ]
+  },
+  {
+    "repository": "team-vvave/cut-extractor",
+    "tracked_files": 392,
+    "reviewed_source_files": [
+      {
+        "path": "image_loader.py",
+        "lines": 52,
+        "definitions": [
+          "ImageLoaderBase",
+          "ChunkImageLoader",
+          "ImageLoader"
+        ],
+        "imports": [
+          "abc",
+          "cv2",
+          "numpy",
+          "pathlib",
+          "typing"
+        ]
+      },
+      {
+        "path": "main.py",
+        "lines": 146,
+        "definitions": [
+          "is_all_black",
+          "is_all_white",
+          "CutExtractor",
+          "main"
+        ],
+        "imports": [
+          "PIL",
+          "click",
+          "collections",
+          "cv2",
+          "image_loader",
+          "numpy",
+          "pathlib",
+          "tqdm",
+          "typing"
+        ]
+      }
+    ]
+  },
+  {
+    "repository": "team-vvave/gradio_demo_api",
+    "tracked_files": 1017,
+    "reviewed_source_files": [
+      {
+        "path": "demo.py",
+        "lines": 202,
+        "definitions": [
+          "TextItem",
+          "api_search_by_text",
+          "api_search_by_dialogue",
+          "api_search_by_final",
+          "search_by_final",
+          "parsing_json_for_display"
+        ],
+        "imports": [
+          "PIL",
+          "argparse",
+          "fastapi",
+          "func1",
+          "func2",
+          "func3",
+          "gradio",
+          "gradio_client",
+          "json",
+          "os",
+          "pydantic",
+          "uvicorn"
+        ]
+      },
+      {
+        "path": "func1.py",
+        "lines": 83,
+        "definitions": [
+          "translate_kor_to_eng",
+          "search_by_text",
+          "search_by_text_and_image"
+        ],
+        "imports": [
+          "PIL",
+          "clip_retrieval",
+          "googletrans",
+          "os"
+        ]
+      },
+      {
+        "path": "func1_clip/query.py",
+        "lines": 11,
+        "definitions": [],
+        "imports": [
+          "clip_retrieval"
+        ]
+      },
+      {
+        "path": "func2.py",
+        "lines": 101,
+        "definitions": [
+          "read_json_file",
+          "load_scene_data",
+          "load_dialogue_data",
+          "load_db",
+          "search_by_dialogue",
+          "refine_query"
+        ],
+        "imports": [
+          "json",
+          "langchain_community",
+          "langchain_core",
+          "langchain_huggingface",
+          "openai",
+          "os"
+        ]
+      },
+      {
+        "path": "func3.py",
+        "lines": 158,
+        "definitions": [
+          "_normalize",
+          "ComposedImageSearchPipeline",
+          "load_models",
+          "get_composed_query",
+          "get_target_paths",
+          "do_retrieve"
+        ],
+        "imports": [
+          "PIL",
+          "ast",
+          "glob",
+          "googletrans",
+          "model",
+          "os",
+          "pathlib",
+          "sys",
+          "third_party",
+          "torch",
+          "typing"
+        ]
+      },
+      {
+        "path": "func3_pic2word/code/main.py",
+        "lines": 180,
+        "definitions": [
+          "_normalize",
+          "ComposedImageSearchPipeline",
+          "load_models",
+          "ImageInfo",
+          "RerankRequest",
+          "RetrieveRequest",
+          "get_composed_query",
+          "retrieve",
+          "rerank"
+        ],
+        "imports": [
+          "PIL",
+          "click",
+          "fastapi",
+          "model",
+          "pathlib",
+          "pydantic",
+          "third_party",
+          "torch",
+          "typing"
+        ]
+      },
+      {
+        "path": "func3_pic2word/code/model/clip.py",
+        "lines": 264,
+        "definitions": [
+          "has_hf_hub",
+          "download_pretrained_from_hf",
+          "_download",
+          "_convert_to_rgb",
+          "_transform",
+          "available_models",
+          "load",
+          "tokenize"
+        ],
+        "imports": [
+          "PIL",
+          "functools",
+          "hashlib",
+          "huggingface_hub",
+          "model",
+          "os",
+          "third_party",
+          "torch",
+          "torchvision",
+          "tqdm",
+          "typing",
+          "urllib",
+          "warnings"
+        ]
+      },
+      {
+        "path": "func3_pic2word/code/model/model.py",
+        "lines": 595,
+        "definitions": [
+          "IM2TEXT",
+          "Bottleneck",
+          "AttentionPool2d",
+          "ModifiedResNet",
+          "LayerNorm",
+          "QuickGELU",
+          "ResidualAttentionBlock",
+          "Transformer",
+          "VisualTransformer",
+          "CLIP",
+          "concat_all_gather",
+          "convert_weights",
+          "build_model"
+        ],
+        "imports": [
+          "collections",
+          "copy",
+          "json",
+          "numpy",
+          "os",
+          "torch",
+          "typing"
+        ]
+      },
+      {
+        "path": "func3_pic2word/code/src/data.py",
+        "lines": 584,
+        "definitions": [
+          "CIRR",
+          "FashionIQ",
+          "CsvCOCO",
+          "ImageList",
+          "CustomFolder",
+          "CsvDataset",
+          "DataInfo",
+          "preprocess_txt",
+          "get_dataset_size",
+          "get_imagenet",
+          "count_samples",
+          "get_csv_dataset",
+          "get_imgnet_r",
+          "get_directory_dataset",
+          "get_dataset_fn",
+          "get_data"
+        ],
+        "imports": [
+          "PIL",
+          "braceexpand",
+          "dataclasses",
+          "functools",
+          "imagenetv2_pytorch",
+          "json",
+          "logging",
+          "math",
+          "numpy",
+          "os",
+          "pandas",
+          "pdb",
+          "pyarrow",
+          "random",
+          "sys",
+          "third_party",
+          "torch",
+          "torchvision",
+          "typing"
+        ]
+      },
+      {
+        "path": "func3_pic2word/code/src/demo.py",
+        "lines": 279,
+        "definitions": [
+          "main_worker",
+          "main"
+        ],
+        "imports": [
+          "data",
+          "eval_utils",
+          "json",
+          "logger",
+          "logging",
+          "model",
+          "os",
+          "params",
+          "pathlib",
+          "shutil",
+          "subprocess",
+          "sys",
+          "time",
+          "torch",
+          "utils"
+        ]
+      },
+      {
+        "path": "func3_pic2word/code/src/eval_retrieval.py",
+        "lines": 356,
+        "definitions": [
+          "load_model",
+          "setup_log_save",
+          "main_worker",
+          "main"
+        ],
+        "imports": [
+          "PIL",
+          "data",
+          "eval_utils",
+          "functools",
+          "json",
+          "logger",
+          "logging",
+          "model",
+          "os",
+          "params",
+          "pathlib",
+          "shutil",
+          "subprocess",
+          "sys",
+          "time",
+          "torch",
+          "torchvision",
+          "utils",
+          "wandb"
+        ]
+      },
+      {
+        "path": "func3_pic2word/code/src/eval_utils.py",
+        "lines": 632,
+        "definitions": [
+          "prepare_img",
+          "visualize_results",
+          "make_html",
+          "evaluate_imgnet_retrieval",
+          "evaluate_coco",
+          "evaluate_cirr",
+          "evaluate_cirr_test",
+          "evaluate_fashion",
+          "get_metrics_coco",
+          "get_metrics_fashion",
+          "get_metrics_cirr",
+          "get_cirr_testoutput",
+          "get_metrics_imgnet"
+        ],
+        "imports": [
+          "PIL",
+          "functools",
+          "json",
+          "logging",
+          "numpy",
+          "os",
+          "pdb",
+          "pickle",
+          "shutil",
+          "sys",
+          "third_party",
+          "time",
+          "torch",
+          "torchvision",
+          "tqdm",
+          "utils"
+        ]
+      },
+      {
+        "path": "func3_pic2word/code/src/logger.py",
+        "lines": 104,
+        "definitions": [
+          "setup_primary_logging",
+          "WorkerLogFilter",
+          "setup_worker_logging",
+          "fake_worker"
+        ],
+        "imports": [
+          "argparse",
+          "logging",
+          "torch"
+        ]
+      },
+      {
+        "path": "func3_pic2word/code/src/main.py",
+        "lines": 339,
+        "definitions": [
+          "main_worker",
+          "main"
+        ],
+        "imports": [
+          "data",
+          "json",
+          "logger",
+          "logging",
+          "model",
+          "os",
+          "params",
+          "pathlib",
+          "pdb",
+          "shutil",
+          "subprocess",
+          "sys",
+          "third_party",
+          "time",
+          "torch",
+          "torchvision",
+          "trainer",
+          "utils",
+          "wandb"
+        ]
+      },
+      {
+        "path": "func3_pic2word/code/src/params.py",
+        "lines": 313,
+        "definitions": [
+          "get_project_root",
+          "get_default_params",
+          "parse_args"
+        ],
+        "imports": [
+          "argparse",
+          "pathlib"
+        ]
+      },
+      {
+        "path": "func3_pic2word/code/src/trainer.py",
+        "lines": 237,
+        "definitions": [
+          "get_loss",
+          "get_text_features",
+          "get_loss_img2text",
+          "train"
+        ],
+        "imports": [
+          "PIL",
+          "json",
+          "logging",
+          "numpy",
+          "os",
+          "pdb",
+          "sys",
+          "third_party",
+          "time",
+          "torch",
+          "torchvision",
+          "tqdm",
+          "utils",
+          "wandb"
+        ]
+      },
+      {
+        "path": "func3_pic2word/code/src/utils.py",
+        "lines": 51,
+        "definitions": [
+          "TargetPad",
+          "convert_models_to_fp32",
+          "is_master"
+        ],
+        "imports": [
+          "math",
+          "numpy",
+          "torch",
+          "torchvision"
+        ]
+      },
+      {
+        "path": "func3_pic2word/code/third_party/open_clip/clip.py",
+        "lines": 227,
+        "definitions": [
+          "_download",
+          "_convert_image_to_rgb",
+          "_transform",
+          "available_models",
+          "load",
+          "tokenize"
+        ],
+        "imports": [
+          "PIL",
+          "hashlib",
+          "model",
+          "os",
+          "pkg_resources",
+          "simple_tokenizer",
+          "torch",
+          "torchvision",
+          "tqdm",
+          "typing",
+          "urllib",
+          "warnings"
+        ]
+      },
+      {
+        "path": "func3_pic2word/code/third_party/open_clip/environment.yml",
+        "lines": 152
+      },
+      {
+        "path": "func3_pic2word/code/third_party/open_clip/model.py",
+        "lines": 436,
+        "definitions": [
+          "Bottleneck",
+          "AttentionPool2d",
+          "ModifiedResNet",
+          "LayerNorm",
+          "QuickGELU",
+          "ResidualAttentionBlock",
+          "Transformer",
+          "VisionTransformer",
+          "CLIP",
+          "convert_weights",
+          "build_model"
+        ],
+        "imports": [
+          "collections",
+          "numpy",
+          "torch",
+          "typing"
+        ]
+      },
+      {
+        "path": "func3_pic2word/code/third_party/open_clip/scheduler.py",
+        "lines": 20,
+        "definitions": [
+          "assign_learning_rate",
+          "_warmup_lr",
+          "cosine_lr"
+        ],
+        "imports": [
+          "numpy"
+        ]
+      },
+      {
+        "path": "func3_pic2word/code/third_party/open_clip/simple_tokenizer.py",
+        "lines": 132,
+        "definitions": [
+          "default_bpe",
+          "bytes_to_unicode",
+          "get_pairs",
+          "basic_clean",
+          "whitespace_clean",
+          "SimpleTokenizer"
+        ],
+        "imports": [
+          "ftfy",
+          "functools",
+          "gzip",
+          "html",
+          "os",
+          "regex"
+        ]
+      },
+      {
+        "path": "func3_pic2word/download_ckpt.py",
+        "lines": 2,
+        "definitions": [],
+        "imports": [
+          "gdown"
+        ]
+      },
+      {
+        "path": "func3_pic2word/reqtest.py",
+        "lines": 21,
+        "definitions": [],
+        "imports": [
+          "requests"
+        ]
+      },
+      {
+        "path": "text_retrieval_merged.py",
+        "lines": 120,
+        "definitions": [
+          "read_json_file",
+          "load_scene_data",
+          "load_dialogue_data",
+          "load_db",
+          "refine_query",
+          "search",
+          "search_query"
+        ],
+        "imports": [
+          "fastapi",
+          "json",
+          "langchain_community",
+          "langchain_core",
+          "langchain_huggingface",
+          "openai",
+          "os"
+        ]
+      }
+    ]
+  },
+  {
+    "repository": "team-vvave/dialogue_search",
+    "tracked_files": 4,
+    "reviewed_source_files": [
+      {
+        "path": "mask.py",
+        "lines": 61,
+        "definitions": [
+          "create_image_mask",
+          "find_white_blobs"
+        ],
+        "imports": [
+          "PIL",
+          "cv2",
+          "matplotlib",
+          "numpy",
+          "os"
+        ]
+      },
+      {
+        "path": "sim.py",
+        "lines": 36,
+        "definitions": [
+          "find_most_similar_desc"
+        ],
+        "imports": [
+          "json",
+          "time",
+          "web_ocr"
+        ]
+      },
+      {
+        "path": "web_ocr.py",
+        "lines": 144,
+        "definitions": [
+          "clean_and_combine_text",
+          "extract_path_after_keyword",
+          "calculate_similarity"
+        ],
+        "imports": [
+          "Levenshtein",
+          "PIL",
+          "easyocr",
+          "glob",
+          "json",
+          "mask",
+          "numpy",
+          "openai",
+          "os",
+          "re",
+          "shutil"
+        ]
+      }
+    ]
+  },
+  {
+    "repository": "team-vvave/.github",
+    "tracked_files": 2,
+    "reviewed_source_files": []
+  }
+]

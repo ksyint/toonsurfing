@@ -1,7 +1,8 @@
 from pathlib import Path
 import numpy as np
 from numpy.typing import NDArray
-from typing import Iterable,  override
+from typing import Iterable
+from typing_extensions import override
 import cv2
 from abc import ABC, abstractmethod
 

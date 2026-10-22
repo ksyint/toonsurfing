@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
-import profile from "../assets/images/thumnails/소녀재판.PNG";
+import profile from "../assets/images/thumnails/소녀재판.svg";
 
 const Container = styled(motion.div)`
   display: flex;

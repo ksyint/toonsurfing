@@ -7,7 +7,9 @@ import ast
 from googletrans import Translator
 import os, glob
 import sys
-sys.path.append('./func3_pic2word/code')
+from functools import lru_cache
+from settings import IMAGE_DIR, PIC2WORD_DIR, PIC2WORD_CHECKPOINT
+sys.path.insert(0, str(PIC2WORD_DIR / 'code'))
 from model.clip import _transform, load
 from model.model import CLIP, IM2TEXT
 from third_party.open_clip.clip import tokenize, _transform
@@ -15,8 +17,8 @@ from third_party.open_clip.clip import tokenize, _transform
 def _normalize(x: torch.Tensor) -> torch.Tensor:
     return x / x.norm(dim=-1, keepdim=True)
 
-SAMPLE_DIR = "./func3_pic2word/code/result"
-ALL_DIR = "../dataset_shared2/orig-result"
+SAMPLE_DIR = str(PIC2WORD_DIR / "code/result")
+ALL_DIR = str(IMAGE_DIR)
 
 class ComposedImageSearchPipeline:
     ID_SPLIT = tokenize(["*"])[0][1]
@@ -73,8 +75,9 @@ class ComposedImageSearchPipeline:
         similarity = similarity.squeeze(0)
         return similarity
 
+@lru_cache(maxsize=1)
 def load_models(model_id: str = 'ViT-L/14',
-                ckpt: str | Path = './func3_pic2word/pic2word_model.pt',
+                ckpt: str | Path = PIC2WORD_CHECKPOINT,
                 ) -> tuple[CLIP, IM2TEXT, Callable[[Image.Image], torch.Tensor]]:
     model, preprocess_train, preprocess_val = load(model_id, jit=False)
     img2text = IM2TEXT(embed_dim=model.embed_dim,
@@ -82,7 +85,7 @@ def load_models(model_id: str = 'ViT-L/14',
     model.cuda()
     img2text.cuda()
     img2text.half()
-    checkpoint = torch.load(ckpt, map_location="cuda:0")
+    checkpoint = torch.load(ckpt, map_location="cuda:0", weights_only=False)
     sd = checkpoint["state_dict"]
     sd_img2text = checkpoint["state_dict_img2text"]
     sd = {k[len('module.'):]: v for k, v in sd.items()}
@@ -94,12 +97,9 @@ def load_models(model_id: str = 'ViT-L/14',
     return model, img2text, transform
 
 
-model, img2text, transform = load_models()
-
-
 CHARACTER_EMBEDDING_DICT: dict[str, Image.Image] = {
     p.stem: Image.open(p)
-    for p in Path("./func3_pic2word/code/character_image_embeddings").glob("*.png")
+    for p in (PIC2WORD_DIR / "code/character_image_embeddings").glob("*.png")
 }
 
 MAIN_CHARACTERS: list[str] = [*CHARACTER_EMBEDDING_DICT.keys()]
@@ -123,6 +123,7 @@ def get_target_paths(type: str) :
 
 def do_retrieve(query: str, target_paths: str, k: int) :
     target_paths = ast.literal_eval(target_paths)
+    model, img2text, transform = load_models()
 
     paths = [os.path.join(ALL_DIR, target_path) for target_path in target_paths]
     retrieve_pipe = ComposedImageSearchPipeline(model, img2text,
