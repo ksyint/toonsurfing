@@ -1,0 +1,11 @@
+/* 공통 클래스 생성 */
+.common-container {
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #f2f2f2;
+}
+
+.HomePage {
+  @extend .common-container;
+}
